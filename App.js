@@ -72,11 +72,12 @@ export default class App extends React.Component {
                    style={styles.textBox} keyboardType='decimal-pad'
                    onChangeText={(timeInYears) => this.setState({timeInYears})}/>
         <Button title="Calculate real value"
+        color="green"
                 onPress={() => {
                   this.calculate();
                   Analytics.trackEvent('calculate_inflation', { Internet: 'WiFi', GPS: 'Off' });
                 }} />
-        <Text style={styles.label}>{this.state.timeInYears} years from now you will still have ${parseFloat(this.state.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}, but it will only be worth ${parseFloat(this.state.afterInflation).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}.</Text>
+        <Text style={styles.label}>{this.state.timeInYears} year(s) from now you will still have ${parseFloat(this.state.amount).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}, but it will only be worth ${parseFloat(this.state.afterInflation).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}.</Text>
         <Text style={styles.label}>But if you invest it at a risk free rate you will have ${parseFloat(this.state.atRiskFree).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')}.</Text>
         <Text style={styles.label}>Which will be worth ${parseFloat(this.state.atRiskFreeAfterInflation).toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')} after inflation.</Text>
         
@@ -99,12 +100,12 @@ const styles = StyleSheet.create({
     color: 'gray'
   },
   textBox: {
-    height: 40,
+    height: 45,
     paddingLeft: 6,
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 10,
-    borderRadius: 5
+    marginBottom: 13,
+    borderRadius: 2
   },
   scrollView: {
     backgroundColor: Colors.lighter,
