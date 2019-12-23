@@ -14,6 +14,7 @@ import {
   View,
   Text,
   StatusBar,
+  Button
 } from 'react-native';
 
 import {
@@ -23,6 +24,8 @@ import {
   DebugInstructions,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import Crashes from "appcenter-crashes"
+import Analytics from 'appcenter-analytics'
 
 const App: () => React$Node = () => {
   return (
@@ -39,6 +42,7 @@ const App: () => React$Node = () => {
             </View>
           )}
           <View style={styles.body}>
+            <Button title = "Crash me" onPress={()=>{Analytics.trackEvent('calc_infi')}} />
             <View style={styles.sectionContainer}>
               <Text style={styles.sectionTitle}>Step One</Text>
               <Text style={styles.sectionDescription}>
